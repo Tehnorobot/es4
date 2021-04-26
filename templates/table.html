@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block table %}
+<h2 align="center">Оформление каюты</h2>
+<table align="center">
+  <tr align="center"><th>Цвет стен</th><th>Эмблема</th></tr>
+  <tr>
+    {% if sex == 'male' and age < 21 %}
+    <td><img src="../../../static/img/male_young.png" height="500px"></td>
+    <td><img src="../../../static/img/alien_male_young.png" height="500px"></td>
+    {% elif sex == 'male' and age >= 21 %}
+    <td><img src="../../../static/img/male_old.png" height="500px"></td>
+    <td><img src="../../../static/img/alien_male_old.png" height="500px"></td>
+    {% elif sex == 'female' and age < 21 %}
+    <td><img src="../../../static/img/female_young.png" height="500px"></td>
+    <td><img src="../../../static/img/alien_female_young.png" height="500px"></td>
+    {% elif sex == 'female' and age >= 21 %}
+    <td><img src="../../../static/img/female_old.png" height="500px"></td>
+    <td><img src="../../../static/img/alien_female_old.png" height="500px"></td>
+    {% endif %}
+  </tr>
+</table>
+{% endblock %}

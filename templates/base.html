@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous">
+        <link href="../static/css/center_img.css" rel="stylesheet">
+        <link href="../static/css/list.css" rel="stylesheet">
+        <link href="../../../static/css/table.css" rel="stylesheet">
+        {% if n == 0 %}
+            <title>{{title}}</title>
+        {% endif %}
+    </head>
+    <body>
+        <h1 class="alert alert-secondary">Миссия Колонизация Марса</h1>
+        <h4>И на Марсе будут яблони цвести!</h4>
+        {% if n == 1 %}
+            <div>
+                {% if 'инженер' in prof.lower() or 'строитель' in prof.lower() %}
+                    <h3 class="alert alert-warning" ><p align="center">Инженерные тренажёры</p></h3>
+                    <img src="../static/img/star_ship_1.png" alt="Картинка не загрузилась" width="1000px" class="center-pic">
+                {% else %}
+                    <h3 class="alert alert-warning" ><p align="center">Научные симуляторы</p></h3>
+                    <img src="../static/img/star_ship_2.png" alt="Картинка не загрузилась" width="1000px" class="center-pic">
+                {% endif %}
+            </div>
+        {% elif n == 2 %}
+            <div>
+                <h2><p align="center">Список профессий</p></h2>
+                {% set prof_list=["Инженер-исследователь", "Пилот", "Строитель", "Экзобиолог", "Врач", "Климатолог", "Астрогеолог", "Метеоролог"] %}
+                {% if list == 'ol' %}
+                    <ol>
+                        {% for prof in prof_list %}
+                        <li>
+                            {{ prof }}
+                        </li>
+                        {% endfor %}
+                    </ol>
+                {% elif list == 'ul' %}
+                    <ul>
+                        {% for prof in prof_list %}
+                        <li>
+                            {{ prof }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% elif n == 3 %}
+            {% block content %}{% endblock %}
+        {% elif n == 4 %}
+            {% block list %}{% endblock %}
+        {% elif n == 5 %}
+            {% block table %}{% endblock %}
+        {% endif %}
+    </body>
+</html>
